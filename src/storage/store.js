@@ -12,7 +12,7 @@ const validator = new Validator();
 import { EventTarget } from "event-target-shim";
 import { fetchRandomDefaultAvatarId, generateRandomName } from "../utils/identity.js";
 import { NO_DEVICE_ID } from "../utils/media-devices-utils.js";
-import { AAModes } from "../constants";
+//import { AAModes } from "../constants";
 
 const defaultMaterialQuality = (function () {
   const MATERIAL_QUALITY_OPTIONS = ["low", "medium", "high"];
@@ -160,8 +160,8 @@ export const SCHEMA = {
         nametagVisibilityDistance: { type: "number", default: 5 },
         avatarVoiceLevels: { type: "object" },
         enablePostEffects: { type: "bool", default: false },
-        enableBloom: { type: "bool", default: true }, // only applies if post effects are enabled
-        aaMode: { type: "string", default: AAModes.MSAA_4X } // only applies if post effects are enabled
+        enableBloom: { type: "bool", default: true }//, // only applies if post effects are enabled
+        //aaMode: { type: "string", default: AAModes.MSAA_4X } // only applies if post effects are enabled
       }
     },
 
