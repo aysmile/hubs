@@ -49,6 +49,17 @@ export function MicSetupModal({
 }) {
   const iconStyle = isMicrophoneEnabled ? styles.iconEnabled : styles.iconDisabled;
   const intl = useIntl();
+
+  // after 1 second, automatically click the submit button of this modal
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      console.log("Auto clicking Enter Room button");
+      onEnterRoom();
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, []);
+
+
   return (
     <Modal
       title={intl.formatMessage(tittleMessages[canVoiceChat ? "microphoneSetup" : "audioSetup"])}

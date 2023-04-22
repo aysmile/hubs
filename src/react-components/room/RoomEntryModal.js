@@ -28,6 +28,16 @@ export function RoomEntryModal({
   ...rest
 }) {
   const breakpoint = useCssBreakpoints();
+
+  // after 1 second, automatically click the submit button of this modal
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      console.log("Auto clicking Join Room button");
+      onJoinRoom();
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <Modal className={classNames(styles.roomEntryModal, className)} disableFullscreen {...rest}>
       <Column center className={styles.content}>
@@ -59,7 +69,7 @@ export function RoomEntryModal({
               </span>
             </Button>
           )}
-          {showSpectate && (
+          {showSpectate && false && (
             <Button preset="accent2" onClick={onSpectate}>
               <ShowIcon />
               <span>
